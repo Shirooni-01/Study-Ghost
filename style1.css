@@ -1,0 +1,527 @@
+/* =========================
+   PLANNER CARD
+========================= */
+
+#planner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+p {
+    margin: 0;
+    opacity: 0.7;
+}
+
+/*=========================
+   task list area
+============================*/
+span {
+    width: 450px;
+    font-size: auto;
+}
+
+
+#task_list_area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-y: auto;
+    height: 500px;
+    padding-right: 10px;
+
+
+    width: 100%;
+    max-width: 700px;
+    /* to avoid content hiding behind scrollbar */
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+#back_btn_plan {
+    /* display: none; */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 8px;
+}
+
+#back_btn_plan_mob {
+    display: none;
+}
+
+
+/*=========================
+   DONE AND DELETE BUTTONS
+   ============================*/
+.done_btn,
+.del_btn {
+    /* background: none; */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 14px;
+}
+
+.done_btn {
+    background-color: rgba(138, 237, 138, 0.581);
+}
+
+.del_btn {
+    background-color: rgba(237, 138, 138, 0.581);
+}
+
+.done_btn:hover {
+    background: rgba(0, 255, 0, 0.9);
+    transform: ease-in-out;
+}
+
+.del_btn:hover {
+    background: rgba(255, 0, 0, 0.9);
+    transform: ease-in-out;
+}
+
+/*=========================
+   BACK BUTTON EXPENSE TRACKER
+   ============================*/
+
+#back_btn_exp {
+    /* display: none; */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 22px;
+    border-radius: 8px;
+}
+
+/* hover only in light mode */
+body:not(.dark-mode) #back_btn_plan:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+body:not(.dark-mode) #back_btn_exp:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+/*=========================
+   FILTER BUTTON EXPENSE TRACKER
+   ============================*/
+#fliter {
+    /* display: none; */
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 8px;
+
+}
+
+body:not(.dark-mode) #fliter:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   BASE CARD STATE
+========================= */
+
+.cards {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================
+   PLANNER TRANSITIONS
+========================= */
+
+#planner {
+    transition:
+        width 0.4s ease,
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* =========================
+   TASK INPUT / LIST
+========================= */
+
+.planner-add {
+    display: flex;
+    z-index: 1000;
+    position: fixed;
+    top: 80%;
+    /* left: ; */
+    gap: 10px;
+}
+
+.planner-add input {
+    flex: 1;
+    font-size: 14px;
+    padding: 12px 12px;
+    width: 600px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#add_task {
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#add_task:hover{
+        background-color: rgba(0, 0, 0, 0.08);
+        transform: ease-in-out;
+}
+
+#add_task_mob {
+    display: none;
+}
+
+.planner-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 24px;
+    justify-content: flex-start;
+    z-index: 999;   
+    width: 100%;
+    
+}
+
+.planner-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 12px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    width: 100%;
+    max-width: 700px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.planner-item.done {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.btn_group_plan{
+    display: flex;
+    gap: 10px;
+}
+
+
+/*=======================
+    EXPANDED STATE
+=========================*/
+
+#card_sec.exp #expand {
+    display: flex;
+    /*everything other style is in style.css*/
+}
+
+
+/*===========================
+HIDE FEATURE DIV
+==========================*/
+
+#card_sec.exp #feature {
+    display: none;
+}
+
+#card_sec.exp #exp_tra {
+    display: none;
+}
+
+/*==========================
+EXPENSE TRACKER DETAIL
+============================*/
+
+/*normal state it should be hidden*/
+
+#exp_tra {
+    visibility: hidden;
+}
+
+
+#add_exp_bt {
+    /*add button*/
+    width: 550px;
+    border-radius: 12px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#card_sec.exptra {
+    /*card section when expense tracker is open*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+
+#card_sec.exptra #exp_tra {
+    visibility: visible;
+    gap: 20px;
+}
+
+#card_sec.exptra #exp_tra {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#card_sec.exptra #feature {
+    display: none;
+}
+
+
+#explist {
+    display: none;
+}
+
+
+#card_sec.exptra #explist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    justify-content: center;
+    position: fixed;
+    top: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 1000px;
+
+    /* 🔥 SCROLL MAGIC */
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+
+.listofexp {
+    background-color: aquamarine;
+    max-width: 180px;
+    max-width: 180px;
+    padding: 10px 8px;
+    font-size: 16px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exp {
+    padding: 2%;
+    margin: 0%;
+    color: black;
+}
+
+.del-exp-btn {
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.del-exp-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+
+.expcard {
+  background-color: aquamarine;
+    max-width: 180px;
+    max-width: 180px;
+    padding: 12px 8px;
+    font-size: 16px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* top row*/
+.exp-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* hidden details by default*/
+ .exp-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+#expense_tracker {
+    gap: 20px;
+}
+
+
+#card_sec.exptra #exp_tra {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+/*==========================
+    FORM STYLES
+============================*/
+form {
+    gap: 25px;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    width: 350px;
+    padding: 20px;
+    background-color: rgba(88, 242, 239, 0.4);
+    top: 270px;
+}
+
+form label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin: -10px;
+}
+
+form input {
+    padding: 8px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+select {
+    padding: 8px;
+    border: none;
+    width: 300px;
+    border-radius: 8px;
+}
+
+form select option {
+    padding: 8px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+}
+
+form button {
+    padding: 8px;
+    width: 145px;
+    border: none;
+    border-radius: 8px;
+    margin-left: 5px;
+    justify-content: center;
+}
+
+
+/*==========================
+    add and back btn of exp tracker
+============================*/
+.ad-bc {
+    display: none;
+}
+
+#card_sec.exptra .ad-bc {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+
+/*=====================
+EXPENSE TOTAL
+=======================*/
+#exp_total {
+    position: fixed;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+
+    padding: 12px 25px;
+    border-radius: 14px;
+
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 20;
+}
+
+
+/*==================
+EXPENSE SCROLL EFFECT
+============================*/
+/* HIDE SCROLLBAR BUT KEEP SCROLL */
+#explist {
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE / Edge */
+}
+
+#explist::-webkit-scrollbar {
+    display: none;              /* Chrome / Safari */
+}
+
+
+
+/*==========================
+    AI NOTES DETAIL
+============================*/
+
+#ai_notes {
+    gap: 20px;
+}
+
+/* Hide feature cards when AI Planner is open */
+#card_sec.ai #feature {
+    display: none;
+}
+

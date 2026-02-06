@@ -1,0 +1,96 @@
+/* =========================
+   THEME VARIABLES
+========================= */
+
+:root {
+    --bg-color: rgba(38, 119, 190, 0.2);
+    --navbar-bg: rgba(38, 119, 190, 0.2);
+    --card-sec-bg: rgba(38, 119, 190, 0.2);
+    --card-bg: white;
+    --text-color: black;
+    --hover-color: antiquewhite;
+    --dhover: rgba(0, 20, 40, 0.5);
+    --totexp: rgba(0, 0, 0, 0.3);
+    --ad_bc: #dfefff;
+    --btns: rgba(85, 85, 85, 0.25);
+}
+
+/* =========================
+   DARK MODE – GLOBAL
+========================= */
+
+body.dark-mode {
+    --bg-color: rgba(38, 119, 190, 0.2);
+    --navbar-bg: rgba(10, 25, 45, 0.9);
+    --card-sec-bg: rgba(12, 28, 48, 0.85);
+    --card-bg: rgba(18, 40, 70, 0.85);
+    --text-color: #eaeaea;
+    --hover-color: rgba(20, 60, 100, 0.7);
+    --totexp: rgba(255, 255, 255, 0.12);
+    --btns: rgba(246, 246, 246, 0.25);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+body.dark-mode,
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode span,
+body.dark-mode label {
+    color: var(--text-color);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+body.dark-mode #back_btn_plan,
+body.dark-mode #back_btn_plan_mob,
+body.dark-mode #add_task,
+body.dark-mode #add_task_mob,
+body.dark-mode #back_btn_exp,
+body.dark-mode #fliter,
+body.dark-mode #back_btn_ai,
+body.dark-mode #ai_refresh_btn
+{
+    background-color: var(--btns);
+    color: white;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+/* body.dark-mode input, */
+body.dark-mode select {
+    color: rgb(0, 0, 0);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+
+/*=================================
+    DARK-MODE FOR AI PLANNER 
+====================================*/
+
+@media (max-width: 768px){
+    body.dark-mode .ad-bc{
+        background-color: rgba(27, 40, 57, 0.5);
+    }
+}
+
+
+
+body.dark-mode .ai_planner_inner{
+    background-color: rgba(27, 40, 57, 0.5);
+}
+
+body.dark-mode #ai_reflect_input{
+    color: black;
+}
+
+body.dark-mode #ai_tabs .ai_tab.active{
+    color: white
+}

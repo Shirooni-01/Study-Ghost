@@ -1,0 +1,20 @@
+KING IS SLAYING !!!
+
+NOW IT IS WORKING ON AI PLANNER.
+
+HTML === [DONE];
+CSS  === [DONE];
+JS   === [DONE];
+
+# UI OF AI PLANNER IS DONE 
+
+<-- THIS IS ORGINAL PROJECT FILES OF STUDYGHOST -->
+
+
+
+                    04-02-2025 1:00AM
+till now everthing is well just after deleting the task it is deleting from db 
+aand everthing well
+
+
+API key = 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
